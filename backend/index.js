@@ -39,6 +39,10 @@ app.post("/chat", async (req, res) => {
   res.send(completion.data.choices[0].message.content);
 });
 
+app.get("/", (req, res)=> {
+  res.send("hi")
+})
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
