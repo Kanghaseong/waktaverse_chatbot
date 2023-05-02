@@ -6,11 +6,11 @@ function App() {
   const [texts, setTexts] = useState([]);
   const [inputValue, setInputValue] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-
+  axios.defaults.withCredentials = true; 
   const handleButtonClick = (event) => {
     event.preventDefault(); // Prevent default form submission behavior
     setIsLoading(true); // Set isLoading to true
-    axios.post("https://port-0-waktaversechatbotserver-3nec02mlh4yll6t.sel4.cloudtype.app/chat", { inputValue })
+    axios.post("https://port-0-waktaversechatbotserver-3nec02mlh4yll6t.sel4.cloudtype.app/chat",{ withCredentials: true }, { inputValue })
       .then(response => {
         setTexts([...texts, response.data]);
         setInputValue("");
