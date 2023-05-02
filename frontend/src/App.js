@@ -10,13 +10,17 @@ function App() {
   const handleButtonClick = (event) => {
     event.preventDefault(); // Prevent default form submission behavior
     setIsLoading(true); // Set isLoading to true
-    axios.post("https://port-0-waktaversechatbotserver-3nec02mlh4yll6t.sel4.cloudtype.app/chat",{ withCredentials: true }, { inputValue })
-      .then(response => {
-        setTexts([...texts, response.data]);
-        setInputValue("");
-      })  
-      .catch(error => console.error(error))
-      .finally(() => setIsLoading(false)); // Set isLoading to false when request is finished
+    axios
+    .post(
+      "https://port-0-waktaversechatbotserver-3nec02mlh4yll6t.sel4.cloudtype.app/chat",
+      { inputValue, withCredentials: true }
+    )
+    .then((response) => {
+      setTexts([...texts, response.data]);
+      setInputValue("");
+    })
+    .catch((error) => console.error(error))
+    .finally(() => setIsLoading(false));
   };
 
   return (
