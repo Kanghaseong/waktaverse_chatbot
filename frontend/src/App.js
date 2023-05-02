@@ -17,7 +17,8 @@ function App() {
         { inputValue },
         { withCredentials: true }
       );
-      setTexts([...texts, response.data]);
+      const newTexts = [...texts, inputValue, response.data];
+      setTexts(newTexts);
       setInputValue("");
     } catch (error) {
       console.error(error);
@@ -25,6 +26,7 @@ function App() {
       setIsLoading(false);
     }
   };
+  
 
   return (
     <div className="App">
