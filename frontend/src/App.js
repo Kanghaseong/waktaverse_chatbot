@@ -13,7 +13,7 @@ function App() {
     setIsLoading(true); // Set isLoading to true
     try {
       const response = await axios.post(
-        "http://localhost:4000/chat",
+        "https://port-0-waktaversechatbotserver-3nec02mlh4yll6t.sel4.cloudtype.app/chat",
         { inputValue },
         { withCredentials: true }
       );
