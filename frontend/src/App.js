@@ -8,12 +8,14 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   axios.defaults.withCredentials = true;
 
+  const apiEndpoint = process.env.REACT_APP_API_ENDPOINT;
+
   const handleButtonClick = async (event) => {
-    event.preventDefault(); // Prevent default form submission behavior
-    setIsLoading(true); // Set isLoading to true
+    event.preventDefault();
+    setIsLoading(true);
     try {
       const response = await axios.post(
-        "https://port-0-waktaversechatbotserver-3nec02mlh4yll6t.sel4.cloudtype.app/chat",
+        apiEndpoint,
         { inputValue },
         { withCredentials: true }
       );
